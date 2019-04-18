@@ -3,11 +3,12 @@
 @section('title','Entrenadores')
 
 @section('content')
-
-<div class="form-group">
-			<label for="">Nombre</label>
-			<input type="text" class="form-control"></input>
-		</div>
-		<button type="submit" class="btn btn-primary">Guardar</button>
-
+<form  class="form-group" method="POST" action="/trainers">
+	@csrf
+	<div class="form-group">
+				<label for="">Nombre</label>
+				<input type="text" name="name" class="form-control"></input>
+			</div>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+</form>
 @endsection	
