@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//---------------------------------------------------------------------
 //Video 08
 //Creacion de las primeras rutas
 Route::get('/mi_primer_ruta', function(){
@@ -26,3 +26,9 @@ return ('Hola barats');
 Route::get('/name/{name}/lastname/{lastname}', function($name, $lastname ='apellido'){
 return ('hola soy' .$name .$lastname);
 }); 
+
+
+//---------------------------------------------------------------------
+//Video 09
+//Creo un controlador y su metodo de prueba correspondiete
+Route::get('/prueba/{name}', 'PruebaController@prueba');
