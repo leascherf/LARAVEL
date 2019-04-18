@@ -32,3 +32,8 @@ return ('hola soy' .$name .$lastname);
 //Video 09
 //Creo un controlador y su metodo de prueba correspondiete
 Route::get('/prueba/{name}', 'PruebaController@prueba');
+
+//---------------------------------------------------------------------
+//Video 10
+//cree un controlador trainers y lo voy a mostrar el la vista
+Route::resource('trainers','TrainerController'); 
