@@ -34,9 +34,16 @@ class TrainerController extends Controller
      */
     public function store(Request $request)
     {
-         return $request->input('name');
-        return $request->all();
+             //defino una variable trainer e instancio una clase trainer
+        $trainer->new Trainer();
+        //guardo en el campo name lo que me trae el request en el input name
+        $trainer->name=$request->input('name');
+        //y lo guardo con el metodo save en la base de datos
+        $trainer->save();
+        return 'guardado';
+       
     }
+    
 
     /**
      * Display the specified resource.
