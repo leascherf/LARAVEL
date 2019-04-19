@@ -3,13 +3,8 @@
 @section('title','Entrenadores')
 
 @section('content')
-	@if ($errors->any())
-		<div class="alert alert-primary mt-1" role="alert">
-			@foreach($errors->all() as $error)
-		  		<p>{{$error}}</p>
-			@endforeach
-		</div>
-	@endif
+
+@include('common.errors')
 
 <form  class="form-group" method="POST" action="/trainers" enctype="multipart/form-data">
 	@csrf
