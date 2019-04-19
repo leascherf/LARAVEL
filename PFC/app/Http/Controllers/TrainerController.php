@@ -48,6 +48,8 @@ class TrainerController extends Controller
         $trainer =new trainer();
          $trainer -> name = $request -> input('name');
          $trainer -> avatar = $name;
+          $trainer -> slug = $request -> input('slug');
+
          $trainer->save();
         
       return redirect()->route('trainers.index');
@@ -119,8 +121,12 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Trainer $trainer)
     {
-        //
+      $file_path= public_path().'images/'.$trainer->avatar;
+        \File::delete($file_path);
+        $trainer->delete();
+        
+      return redirect()->route('trainers.index');
     }
 }

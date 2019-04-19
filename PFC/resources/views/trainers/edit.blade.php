@@ -22,6 +22,13 @@ Y agrego el @method put --}}
 			<label for="">Avatar</label>
 			<input type="file" name="avatar"></input>			
 	</div>
-			<button type="submit" class="btn btn-primary mt-3">Guardar Edicion</button>
+			<button type="submit" class="btn btn-primary mt-3">Guardar </button>
+
+			{{-- Para poder eliminar tengo que pasar el metodo DELETE es por esto que es necesario seguir esta sintaxis --}}
+			 <form class="form-group" method="POST" action="/trainers/{{$trainer->slug}}">
+		        @csrf
+		        @method('DELETE')
+		        <button type="submit" class="btn btn-danger mt-3">Eliminar</button>
+		   		 </form>﻿
 </form>
 @endsection	
