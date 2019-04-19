@@ -6,6 +6,8 @@ use PFC\Trainer;
 
 use Illuminate\Http\Request;
 
+use PFC\Http\Requests\StoreTrainerRequest;
+
 class TrainerController extends Controller
 {
     /**
@@ -35,14 +37,9 @@ class TrainerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTrainerRequest $request)
     {
-        //validacion de campos
-        $validateData = $request->validate([
-        'name' => 'required|max: 10',
-        'avatar' => 'required|image',
-        'slug' => 'required'
-        ]);
+        
        if($request->hasFile('avatar')){
         $file = $request->file('avatar');
         $name = time().$file->getClientOriginalName();
