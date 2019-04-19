@@ -14,6 +14,10 @@ Y agrego el @method put --}}
 			<label for="">Nombre</label>
 			<input type="text" name="name"  value="{{$trainer->name}}" class="form-control"></input>
 	</div>
+		<div class="form-group">
+			<label for="">Slug</label>
+			<input type="text" name="slug"  value="{{$trainer->slug}}" class="form-control"></input>
+	</div>
 	<div class="form-group">
 			<label for="">Avatar</label>
 			<input type="file" name="avatar"></input>			
