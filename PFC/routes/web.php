@@ -37,3 +37,6 @@ Route::get('/prueba/{name}', 'PruebaController@prueba');
 //Video 10
 //cree un controlador trainers y lo voy a mostrar el la vista
 Route::resource('trainers','TrainerController'); 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
