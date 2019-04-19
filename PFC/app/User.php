@@ -17,11 +17,12 @@ public function roles(){
 
 //nos falta una capa de interaccion mas directa
 //este sera el que desencadene todo el proceso
-public funcion authorizeRoles($roles){
+public function authorizeRoles($roles){
         if ($this->hasAnyRole($roles)){
                 return true;
         }
         //si no se cumple tendremos que decirle al usuario que algo anda mal entonces uso ABORT() y genero una excepcion http
+        
         abort(401,'Esta accion no esta autirozada');
 }
 
@@ -51,7 +52,7 @@ public function hasRole($role){
     //un usuario puede tener mas de un rol
     //la validacion para ver si el usario tiene ese rol asignado
     //si en este modelo actual seria el usuario dentro de su relacion con roles donde le pasamos su nombre si existe me mande el primero que encuentre
-    if ($this->roles()->where('name', $role->first())){
+    if ($this->roles()->where('name', $role)->first()){
         return true;
     }
          return false;

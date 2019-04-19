@@ -15,8 +15,10 @@ class TrainerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //accedo por el request a la informacion del usuario y lo valido con el metodo de authorizerol que esta en el user.php
+        $request->user()->authorizeRoles('admin');
         $trainers= trainer::all();
        return view('trainers.index', compact('trainers'));
     }
