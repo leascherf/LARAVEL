@@ -56,16 +56,7 @@ class TrainerController extends Controller
          //redireccionamiento de rutas 
       
       return redirect()->route('trainers.index');
-       }
-
-        //      //defino una variable trainer e instancio una clase trainer
-        // $trainer= new Trainer();
-        // //guardo en el campo name lo que me trae el request en el input name
-        // $trainer->name=$request->input('name');
-        // //y lo guardo con el metodo save en la base de datos
-        // $trainer->save();
-        // return 'guardado';
-       
+       }       
     }
     
 
@@ -114,7 +105,7 @@ class TrainerController extends Controller
             $file-> move(public_path().'/images/',$name);
         }   
         $trainer->save();
-         return ('Actualizacion correcta');
+        return redirect()->route('trainers.show', [$trainer])->with('status', 'Entrenador Actualizado Correctamente');
 
     }
 
