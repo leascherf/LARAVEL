@@ -72,7 +72,8 @@
             </div>
         </nav>
 
-        <main class="py-4">
+/{{-- /modifico y agrego la clase container --}}
+        <main class="container">
             @yield('content')
         </main>
     </div>
