@@ -37,13 +37,26 @@ class TrainerController extends Controller
      */
     public function store(Request $request)
     {
-             //defino una variable trainer e instancio una clase trainer
-        $trainer= new Trainer();
-        //guardo en el campo name lo que me trae el request en el input name
-        $trainer->name=$request->input('name');
-        //y lo guardo con el metodo save en la base de datos
-        $trainer->save();
-        return 'guardado';
+       if($request->hasFile('avatar')){
+        $file = $request->file('avatar');
+        $name = time().$file->getClientOriginalName();
+        $file->move(public_path().'/images/',$name);
+
+        $trainer =new trainer();
+         $trainer -> name = $request -> input('name');
+         $trainer -> avatar = $name;
+         $trainer->save();
+        
+      return redirect()->route('trainers.index');
+       }
+
+        //      //defino una variable trainer e instancio una clase trainer
+        // $trainer= new Trainer();
+        // //guardo en el campo name lo que me trae el request en el input name
+        // $trainer->name=$request->input('name');
+        // //y lo guardo con el metodo save en la base de datos
+        // $trainer->save();
+        // return 'guardado';
        
     }
     
