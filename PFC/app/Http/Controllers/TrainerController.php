@@ -52,6 +52,9 @@ class TrainerController extends Controller
 
          $trainer->save();
         
+        //esto es del video 29
+         //redireccionamiento de rutas 
+      
       return redirect()->route('trainers.index');
        }
 
