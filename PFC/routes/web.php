@@ -40,3 +40,9 @@ Route::resource('trainers','TrainerController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//---------------------------------------------------------------------
+//Video 39 
+//Incorporando VUE a nuestro projecto
+//Incorporando componentes VUE
+
+Route::resource('pokemons', 'PokemonController');
